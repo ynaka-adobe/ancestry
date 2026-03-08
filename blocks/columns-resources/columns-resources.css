@@ -1,14 +1,62 @@
+/* Columns Resources Block - Ancestry footer resources links */
+
 .columns-resources > div {
   display: flex;
   flex-direction: column;
+  gap: 32px;
 }
 
+/* Each resource column */
+.columns-resources > div > div {
+  flex: 1;
+}
+
+/* Resource heading (h2 > strong) */
+.columns-resources h2 {
+  font-family: var(--body-font-family);
+  font-size: var(--heading-font-size-s);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text-light);
+  margin: 0 0 16px;
+}
+
+/* Resource links list */
+.columns-resources ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.columns-resources li {
+  margin: 0 0 8px;
+}
+
+.columns-resources li:last-child {
+  margin-bottom: 0;
+}
+
+.columns-resources a {
+  font-size: var(--body-font-size-m);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  line-height: 1.6;
+  background: none;
+  padding: 0;
+  min-height: auto;
+  border-radius: 0;
+}
+
+.columns-resources a:hover {
+  color: var(--color-text-light);
+  text-decoration: underline;
+  background: none;
+}
+
+/* Image column handling */
 .columns-resources img {
   width: 100%;
-}
-
-.columns-resources > div > div {
-  order: 1;
 }
 
 .columns-resources > div > .columns-resources-img-col {
@@ -19,15 +67,15 @@
   display: block;
 }
 
+/* Desktop: 3 columns */
 @media (width >= 900px) {
   .columns-resources > div {
-    align-items: center;
-    flex-direction: unset;
-    gap: 24px;
+    flex-direction: row;
+    gap: 48px;
+    align-items: flex-start;
   }
 
   .columns-resources > div > div {
-    flex: 1;
     order: unset;
   }
 }

@@ -1,14 +1,60 @@
+/* Columns Compare Block - Ancestry Family History vs DNA comparison */
+
 .columns-compare > div {
   display: flex;
   flex-direction: column;
+  gap: 24px;
+}
+
+/* Each comparison column */
+.columns-compare > div > div {
+  flex: 1;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 32px 24px;
+  text-align: left;
+}
+
+/* Column heading (first paragraph - "Family History is who you're from.") */
+.columns-compare > div > div > p:first-child {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-m);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+  margin-bottom: 16px;
+}
+
+/* Description paragraphs */
+.columns-compare > div > div > p:nth-child(2) {
+  font-size: var(--body-font-size-l);
+  line-height: 1.5;
+  color: var(--color-text-primary);
+  margin-bottom: 24px;
+}
+
+/* Learn more link - styled as teal link */
+.columns-compare > div > div > p:last-child a {
+  display: inline-block;
+  font-size: var(--body-font-size-xl);
+  font-weight: var(--button-font-weight);
+  color: var(--color-link);
+  background: none;
+  padding: 0;
+  min-height: auto;
+  border-radius: 0;
+  text-decoration: none;
+}
+
+.columns-compare > div > div > p:last-child a:hover {
+  color: var(--color-link-hover);
+  text-decoration: underline;
+  background: none;
 }
 
 .columns-compare img {
   width: 100%;
-}
-
-.columns-compare > div > div {
-  order: 1;
+  border-radius: 8px;
 }
 
 .columns-compare > div > .columns-compare-img-col {
@@ -19,15 +65,16 @@
   display: block;
 }
 
+/* Desktop layout */
 @media (width >= 900px) {
   .columns-compare > div {
-    align-items: center;
-    flex-direction: unset;
+    flex-direction: row;
     gap: 24px;
+    align-items: stretch;
   }
 
   .columns-compare > div > div {
-    flex: 1;
     order: unset;
+    padding: 40px 32px;
   }
 }
