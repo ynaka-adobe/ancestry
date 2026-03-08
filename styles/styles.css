@@ -291,113 +291,6 @@ a.button.tertiary {
   }
 }
 
-/* Dark section - matches Ancestry green promotional banner */
-.section.dark {
-  background-color: #328800;
-  color: #fff;
-  padding: 32px 0;
-
-  > .default-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-    gap: 24px;
-  }
-
-  h2 {
-    font-family: ui-serifed, "Times New Roman", times, serif;
-    font-size: 42px;
-    font-weight: 400;
-    line-height: 1.2;
-    color: #fff;
-    margin: 0;
-    white-space: nowrap;
-  }
-
-  p {
-    font-family: ui-sans, "Helvetica Neue", arial, sans-serif;
-    font-size: 32px;
-    font-weight: 400;
-    line-height: 1.33;
-    color: #fff;
-    margin: 0;
-  }
-
-  p:has(> strong) {
-    border-left: 2px solid rgb(255 255 255 / 40%);
-    padding-left: 24px;
-  }
-
-  strong {
-    font-weight: 600;
-  }
-
-  /* CTA button */
-  .button-container a,
-  p > a {
-    display: inline-block;
-    background-color: #fff;
-    color: #262626;
-    font-family: ui-sans, "Helvetica Neue", arial, sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 1;
-    text-decoration: none;
-    border-radius: 32px;
-    padding: 12px 24px;
-    min-height: 40px;
-    box-sizing: border-box;
-    white-space: nowrap;
-    transition: background-color 0.2s ease;
-  }
-
-  .button-container a:hover,
-  p > a:hover {
-    background-color: #e6e6e6;
-  }
-
-  /* Disclaimer text */
-  p:last-child:not(:has(a)) {
-    font-size: 13px;
-    line-height: 1.33;
-    opacity: 0.9;
-  }
-}
-
-@media (width < 900px) {
-  .section.dark > .default-content {
-    flex-direction: column;
-    text-align: center;
-    gap: 16px;
-  }
-
-  .section.dark h2 {
-    font-size: 32px;
-    white-space: normal;
-  }
-
-  .section.dark p {
-    font-size: 22px;
-  }
-
-  .section.dark p:has(> strong) {
-    border-left: none;
-    padding-left: 0;
-  }
-}
-
-@media (width < 600px) {
-  .section.dark h2 {
-    font-size: 28px;
-  }
-
-  .section.dark p {
-    font-size: 18px;
-  }
-}
 button {
   cursor: pointer;
 }
@@ -460,36 +353,112 @@ button {
   }
 }
 
-/* Dark section variant */
+/* Dark section - matches Ancestry green promotional banner */
 main > .section.dark {
-  background-color: var(--color-dark-olive);
+  background-color: var(--color-green-primary);
   color: var(--color-text-light);
+  padding: 32px 0;
+
+  > .default-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    gap: 24px;
+    text-align: left;
+  }
 
   h1, h2, h3, h4, h5, h6 {
     color: var(--color-text-light);
   }
 
+  h2 {
+    font-family: var(--heading-font-family);
+    font-size: 42px;
+    font-weight: 400;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
   p {
+    font-family: var(--body-font-family);
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1.33;
     color: var(--color-text-light);
+    margin: 0;
   }
 
-  a:not(.button, strong a) {
-    color: var(--color-text-light);
+  p:has(> strong) {
+    border-left: 2px solid rgb(255 255 255 / 40%);
+    padding-left: 24px;
   }
 
-  a:not(.button, strong a):hover {
-    color: #ccc;
-  }
-
-  /* White secondary button on dark backgrounds */
-  em a,
-  a.button.secondary {
-    color: var(--color-text-primary);
+  /* CTA button - white pill on green background */
+  .button-container a,
+  p > a {
+    display: inline-block;
     background-color: #fff;
+    color: var(--color-text-primary);
+    font-family: var(--body-font-family);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    border-radius: var(--button-border-radius);
+    padding: 12px 24px;
+    min-height: 40px;
+    box-sizing: border-box;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+  }
 
-    &:hover {
-      background-color: #f0f0f0;
-    }
+  .button-container a:hover,
+  p > a:hover {
+    background-color: #e6e6e6;
+    color: var(--color-text-primary);
+    text-decoration: none;
+  }
+
+  /* Disclaimer text */
+  p:last-child:not(:has(a), :has(strong)) {
+    font-size: 13px;
+    line-height: 1.33;
+    opacity: 0.9;
+  }
+}
+
+@media (width < 900px) {
+  main > .section.dark > .default-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+
+  main > .section.dark h2 {
+    font-size: 32px;
+    white-space: normal;
+  }
+
+  main > .section.dark p {
+    font-size: 22px;
+  }
+
+  main > .section.dark p:has(> strong) {
+    border-left: none;
+    padding-left: 0;
+  }
+}
+
+@media (width < 600px) {
+  main > .section.dark h2 {
+    font-size: 28px;
+  }
+
+  main > .section.dark p {
+    font-size: 18px;
   }
 }
 
