@@ -1,0 +1,156 @@
+{
+  "templates": [
+    {
+      "name": "homepage",
+      "urls": [
+        "https://www.ancestry.com"
+      ],
+      "description": "Ancestry.com homepage with hero, search features, promotional content, and calls to action",
+      "blocks": [
+        {
+          "name": "hero-homepage",
+          "instances": [
+            ".showBAUHero .a250-gradient .cmp-container-centered"
+          ]
+        },
+        {
+          "name": "columns-compare",
+          "instances": [
+            ".showBAUBody .container-media-9dbef534c3 .cmp-item-list.listNoWrap"
+          ]
+        },
+        {
+          "name": "cards-pricing",
+          "instances": [
+            ".showBAUBody .container-media-209050d539 .cmp-item-list.listNoWrap"
+          ]
+        },
+        {
+          "name": "cards-feature",
+          "instances": [
+            ".showBAUBody .container-media-88b48f4f93 .cmp-item-list"
+          ]
+        },
+        {
+          "name": "columns-resources",
+          "instances": [
+            ".ancestry-footer .cmp-item-list"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Sale Headband",
+          "selector": ".showBAUHero .flashSaleHeadband.bgDark",
+          "style": "dark",
+          "blocks": [],
+          "defaultContent": [
+            ".flashSaleHeadband h2.textalt",
+            ".flashSaleHeadband .cmp-text p",
+            ".flashSaleHeadband .cmp-button",
+            ".flashSaleHeadband p.textsml"
+          ]
+        },
+        {
+          "id": "section-2",
+          "name": "Hero",
+          "selector": ".showBAUHero .a250-gradient",
+          "style": null,
+          "blocks": [
+            "hero-homepage"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-3",
+          "name": "Women's History Month Promo",
+          "selector": ".showBAUHero .container-media-64f6229726",
+          "style": "dark",
+          "blocks": [],
+          "defaultContent": [
+            ".container-media-64f6229726 .cmp-image__image",
+            ".container-media-64f6229726 .cmp-text p",
+            ".container-media-64f6229726 .cmp-button"
+          ]
+        },
+        {
+          "id": "section-4",
+          "name": "Family History and AncestryDNA",
+          "selector": ".showBAUBody .container-media-9dbef534c3",
+          "style": null,
+          "blocks": [
+            "columns-compare"
+          ],
+          "defaultContent": [
+            ".container-media-9dbef534c3 h2.textalt",
+            ".container-media-9dbef534c3 .cmp-text p.text3xlrg"
+          ]
+        },
+        {
+          "id": "section-5",
+          "name": "AncestryPreserve",
+          "selector": ".showBAUBody .container-media-8f09b9dbdd",
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            ".container-media-8f09b9dbdd .cmp-image__image",
+            ".container-media-8f09b9dbdd h3",
+            ".container-media-8f09b9dbdd p.textdesc",
+            ".container-media-8f09b9dbdd .cmp-button"
+          ]
+        },
+        {
+          "id": "section-6",
+          "name": "Pricing Cards",
+          "selector": ".showBAUBody .container-media-209050d539",
+          "style": null,
+          "blocks": [
+            "cards-pricing"
+          ],
+          "defaultContent": [
+            ".container-media-209050d539 h2.textalt",
+            ".container-media-209050d539 .cmp-text p.text3xlrg"
+          ]
+        },
+        {
+          "id": "section-7",
+          "name": "Finding Your Roots",
+          "selector": ".showBAUBody .container-media-3b8f82d127",
+          "style": "accent-teal",
+          "blocks": [],
+          "defaultContent": [
+            ".container-media-3b8f82d127 .cmp-image__image",
+            ".container-media-3b8f82d127 h3",
+            ".container-media-3b8f82d127 p.textdesc",
+            ".container-media-3b8f82d127 p.textsml",
+            ".container-media-3b8f82d127 .cmp-button"
+          ]
+        },
+        {
+          "id": "section-8",
+          "name": "Learn More",
+          "selector": ".showBAUBody .container-media-88b48f4f93",
+          "style": null,
+          "blocks": [
+            "cards-feature"
+          ],
+          "defaultContent": [
+            ".container-media-88b48f4f93 h2.textalt",
+            ".container-media-88b48f4f93 .cmp-text p.text2xlrg"
+          ]
+        },
+        {
+          "id": "section-9",
+          "name": "Genealogy Resources",
+          "selector": ".ancestry-footer",
+          "style": "dark",
+          "blocks": [
+            "columns-resources"
+          ],
+          "defaultContent": []
+        }
+      ]
+    }
+  ]
+}
