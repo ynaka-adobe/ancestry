@@ -1,27 +1,147 @@
+/* Cards Pricing Block - Ancestry pricing plans */
+
 .cards-pricing > ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
+  grid-template-columns: 1fr;
   gap: 24px;
 }
 
 .cards-pricing > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
+  background-color: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
 }
 
-.cards-pricing .cards-pricing-card-body {
-  margin: 16px;
-}
-
+/* Card image - when present */
 .cards-pricing .cards-pricing-card-image {
   line-height: 0;
+  margin: -24px -24px 24px;
 }
 
 .cards-pricing > ul > li img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
+}
+
+/* Card body divs - all content sections */
+.cards-pricing .cards-pricing-card-body {
+  margin: 0 0 8px;
+}
+
+/* Product name (first body div) */
+.cards-pricing > ul > li > .cards-pricing-card-body:first-child,
+.cards-pricing > ul > li > .cards-pricing-card-image + .cards-pricing-card-body {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-m);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+  margin-bottom: 8px;
+}
+
+/* "From" label */
+.cards-pricing > ul > li > .cards-pricing-card-body:nth-child(2),
+.cards-pricing > ul > li > .cards-pricing-card-image + .cards-pricing-card-body + .cards-pricing-card-body {
+  font-size: var(--body-font-size-s);
+  color: var(--color-text-primary);
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+/* Price display */
+.cards-pricing > ul > li > .cards-pricing-card-body:nth-child(3) {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--color-text-primary);
+  margin-bottom: 16px;
+}
+
+.cards-pricing > ul > li > .cards-pricing-card-body:nth-child(3) sup {
+  font-size: 18px;
+  font-weight: 700;
+  vertical-align: super;
+}
+
+.cards-pricing > ul > li > .cards-pricing-card-body:nth-child(3) del {
+  font-size: var(--body-font-size-m);
+  font-weight: 400;
+  color: var(--color-text-primary);
+  opacity: 0.6;
+}
+
+/* Description text */
+.cards-pricing > ul > li > .cards-pricing-card-body:nth-child(4) {
+  font-size: var(--body-font-size-m);
+  line-height: 1.5;
+  color: var(--color-text-primary);
+  margin-bottom: 24px;
+  flex: 1;
+}
+
+/* CTA button container */
+.cards-pricing > ul > li > .cards-pricing-card-body:nth-child(5) {
+  margin-top: auto;
+}
+
+/* CTA button link */
+.cards-pricing .cards-pricing-card-body a {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-family: var(--body-font-family);
+  font-size: var(--button-primary-font-size);
+  font-weight: var(--button-font-weight);
+  color: var(--button-primary-color);
+  background-color: var(--button-primary-bg);
+  border: 1px solid transparent;
+  border-radius: var(--button-border-radius);
+  padding: var(--button-primary-padding);
+  min-height: var(--button-primary-min-height);
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--button-transition);
+  box-sizing: border-box;
+}
+
+.cards-pricing .cards-pricing-card-body a:hover {
+  background-color: var(--button-primary-bg-hover);
+  color: var(--button-primary-color);
+  text-decoration: none;
+}
+
+/* Sale badge (last body div when it contains uppercase sale text) */
+.cards-pricing > ul > li > .cards-pricing-card-body:nth-child(6),
+.cards-pricing > ul > li > .cards-pricing-card-body:last-child:nth-child(n+6) {
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+  color: var(--color-green-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 12px;
+  text-align: center;
+}
+
+/* Desktop: 3 columns */
+@media (width >= 900px) {
+  .cards-pricing > ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tablet: 2 columns */
+@media (width >= 600px) and (width < 900px) {
+  .cards-pricing > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

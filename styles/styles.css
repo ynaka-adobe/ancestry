@@ -1,205 +1,117 @@
+/* Ancestry.com Design System - Migrated to AEM Edge Delivery Services */
+
+/* fallback fonts */
 @font-face {
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: swap;
-  src: url("/styles/fonts/montserrat.woff2") format("woff2");
-  unicode-range:
-    U+0000-00FF,
-    U+0131,
-    U+0152-0153,
-    U+02BB-02BC,
-    U+02C6,
-    U+02DA,
-    U+02DC,
-    U+0304,
-    U+0308,
-    U+0329,
-    U+2000-206F,
-    U+20AC,
-    U+2122,
-    U+2191,
-    U+2193,
-    U+2212,
-    U+2215,
-    U+FEFF,
-    U+FFFD;
+  font-family: ui-sans-fallback;
+  size-adjust: 100%;
+  src: local("Helvetica Neue"), local("Arial");
 }
 
 @font-face {
-  font-family: Montserrat;
-  font-style: italic;
-  font-weight: 100 900;
-  font-display: swap;
-  src: url("/styles/fonts/montserrat-italic.woff2") format("woff2");
-  unicode-range:
-    U+0000-00FF,
-    U+0131,
-    U+0152-0153,
-    U+02BB-02BC,
-    U+02C6,
-    U+02DA,
-    U+02DC,
-    U+0304,
-    U+0308,
-    U+0329,
-    U+2000-206F,
-    U+20AC,
-    U+2122,
-    U+2191,
-    U+2193,
-    U+2212,
-    U+2215,
-    U+FEFF,
-    U+FFFD;
+  font-family: ui-serifed-fallback;
+  size-adjust: 100%;
+  src: local("Times New Roman"), local("Georgia");
 }
 
 :root {
-  /* grid */
-  --grid-container-width: 83.4%;
-  --grid-column-width: calc(var(--grid-container-width) / 12);
-  --grid-gutter-width: 8.3%;
+  /* ========== ANCESTRY COLOR PALETTE ========== */
 
-  /* spacing */
-  --spacing-xxl: 48px;
-  --spacing-xl: 32px;
-  --spacing-l: 24px;
-  --spacing-m: 12px;
-  --spacing-s: 8px;
-  --spacing-xs: 4px;
+  /* Primary brand colors */
+  --color-green-primary: #328800;             /* rgb(50, 136, 0) - CTA green */
+  --color-green-hover: #276b00;               /* darker green for hover */
+  --color-dark-olive: #38362d;                /* rgb(56, 54, 45) - dark sections */
+  --color-warm-beige: #f6f3f0;               /* rgb(246, 243, 240) - page background */
+  --color-warm-beige-dark: #dad4c5;          /* rgb(218, 212, 197) - hero gradient end */
+  --color-warm-gray: #f0eee9;               /* rgb(240, 238, 233) - resources section bg */
+  --color-neutral-light: #e2e0dd;            /* rgb(226, 224, 221) - secondary button bg */
 
-  /* color schemes */
-  color-scheme: light dark;
+  /* Text colors */
+  --color-text-primary: #262626;              /* rgb(38, 38, 38) - primary text */
+  --color-text-light: #fff;                   /* white text on dark sections */
+  --color-text-muted: #36322d;               /* rgb(54, 50, 45) - footer links */
 
-  /* color tokens */
-  --color-gray-100: #f1f1f1;
-  --color-gray-200: #d3d3d3;
-  --color-gray-300: #b5b5b5;
-  --color-gray-400: #999;
-  --color-gray-500: #7d7d7d;
-  --color-gray-600: #636363;
-  --color-gray-700: #494949;
-  --color-gray-800: #313131;
-  --color-gray-900: #1b1b1b;
-  --color-green-100: #e1f5e3;
-  --color-green-200: #a3e1a8;
-  --color-green-300: #60cb6a;
-  --color-green-400: #24b032;
-  --color-green-500: #1e9029;
-  --color-green-600: #187220;
-  --color-green-700: #115418;
-  --color-green-800: #0c3910;
-  --color-green-900: #072009;
-  --color-teal-100: #e4f3f5;
-  --color-teal-200: #acdbdf;
-  --color-teal-300: #71c1c9;
-  --color-teal-400: #36a7b3;
-  --color-teal-500: #108a96;
-  --color-teal-600: #0d6d77;
-  --color-teal-700: #0a5158;
-  --color-teal-800: #06363b;
-  --color-teal-900: #041e21;
-  --color-blue-100: #eaf2ff;
-  --color-blue-200: #b9d4ff;
-  --color-blue-300: #88b6ff;
-  --color-blue-400: #5898ff;
-  --color-blue-500: #2176ff;
-  --color-blue-600: #0058e4;
-  --color-blue-700: #0041a9;
-  --color-blue-800: #002c74;
-  --color-blue-900: #001942;
-  --color-purple-100: #f4edfb;
-  --color-purple-200: #dfcbf2;
-  --color-purple-300: #c9a7ea;
-  --color-purple-400: #b385e1;
-  --color-purple-500: #9d60d8;
-  --color-purple-600: #843ccb;
-  --color-purple-700: #622c98;
-  --color-purple-800: #421e66;
-  --color-purple-900: #251139;
-  --color-magenta-100: #ffebf9;
-  --color-magenta-200: #ffc0ec;
-  --color-magenta-300: #ff8fde;
-  --color-magenta-400: #ff53cc;
-  --color-magenta-500: #eb00a5;
-  --color-magenta-600: #bd0084;
-  --color-magenta-700: #8e0064;
-  --color-magenta-800: #630045;
-  --color-magenta-900: #3b002a;
-  --color-red-100: #ffecea;
-  --color-red-200: #ffc4be;
-  --color-red-300: #ff9990;
-  --color-red-400: #ff6759;
-  --color-red-500: #f81400;
-  --color-red-600: #c71000;
-  --color-red-700: #950c00;
-  --color-red-800: #670800;
-  --color-red-900: #3c0500;
-  --color-orange-100: #ffeddc;
-  --color-orange-200: #ffc895;
-  --color-orange-300: #ff9e43;
-  --color-orange-400: #f37500;
-  --color-orange-500: #c76000;
-  --color-orange-600: #9e4c00;
-  --color-orange-700: #753800;
-  --color-orange-800: #4f2600;
-  --color-orange-900: #2d1500;
-  --color-yellow-100: #fff48e;
-  --color-yellow-200: #ebd400;
-  --color-yellow-300: #cab600;
-  --color-yellow-400: #ab9a00;
-  --color-yellow-500: #8c7e00;
-  --color-yellow-600: #6e6400;
-  --color-yellow-700: #514a00;
-  --color-yellow-800: #373100;
-  --color-yellow-900: #1e1b00;
+  /* Link colors */
+  --color-link: #0e7194;                     /* rgb(14, 113, 148) - teal links */
+  --color-link-hover: #0a5570;
 
-  /* named colors */
-  --color-light-base: 255 255 255;
-  --color-dark-base: 0 0 0;
-  --color-light: rgb(255 255 255);
-  --color-dark: rgb(0 0 0);
-  --color-text: light-dark(var(--color-dark), var(--color-light));
-  --color-link: light-dark(var(--color-gray-900), var(--color-gray-100));
-  --color-brand: var(--color-purple-500);
-  --color-accent: light-dark(var(--color-magenta-600), var(--color-magenta-500));
-  --color-background: light-dark(var(--color-light), var(--color-dark));
-  --color-shaded: light-dark(#f9f9f9, #111);
+  /* Named colors */
+  --color-background: var(--color-warm-beige);
+  --color-text: var(--color-text-primary);
 
-  /* fonts */
-  --font-family: montserrat, "Trebuchet MS", sans-serif;
+  /* ========== TYPOGRAPHY ========== */
 
-  /* headings */
-  --heading-font-size-xxl: 32.44px;
-  --heading-font-size-xl: 28.83px;
-  --heading-font-size-l: 25.63px;
-  --heading-font-size-m: 22.78px;
-  --heading-font-size-s: 20.25px;
-  --heading-font-size-xs: 18px;
-  --heading-line-height: 1.15;
+  /* Font families - Ancestry uses system font stacks */
+  --heading-font-family: ui-serifed, "Times New Roman", times, serif;
+  --body-font-family: ui-sans, "Helvetica Neue", arial, sans-serif;
+  --font-family: var(--body-font-family);
 
-  /* body */
-  --body-font-size-xxxl: 25px;
-  --body-font-size-xxl: 22px;
-  --body-font-size-xl: 20px;
-  --body-font-size-l: 18px;
-  --body-font-size-m: 16px;
-  --body-font-size-s: 14px;
-  --body-font-size-xs: 12px;
-  --body-line-height: 1.6;
+  /* Heading sizes */
+  --heading-font-size-xxl: 60px;     /* h1 */
+  --heading-font-size-xl: 48px;      /* h2 in body */
+  --heading-font-size-l: 42px;       /* h2 in dark sections */
+  --heading-font-size-m: 25px;       /* h3 */
+  --heading-font-size-s: 20px;       /* h4 */
+  --heading-font-size-xs: 18px;      /* h5/h6 */
+  --heading-line-height: 1.2;
 
-  /* misc */
+  /* Body text sizes */
+  --body-font-size-xxxl: 32px;       /* large promo text */
+  --body-font-size-xxl: 21.5px;      /* subtitle/description text */
+  --body-font-size-xl: 18px;         /* large body */
+  --body-font-size-l: 16.5px;        /* regular description */
+  --body-font-size-m: 14.5px;        /* base body */
+  --body-font-size-s: 13px;          /* small/disclaimer text */
+  --body-font-size-xs: 12px;         /* fine print */
+  --body-line-height: 1.33;
+
+  /* ========== BUTTONS ========== */
+  --button-border-radius: 32px;
+  --button-font-weight: 700;
+  --button-transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+
+  /* Primary button (green CTA) */
+  --button-primary-bg: var(--color-green-primary);
+  --button-primary-color: #fff;
+  --button-primary-bg-hover: var(--color-green-hover);
+  --button-primary-padding: 9px 34px;
+  --button-primary-font-size: 18px;
+  --button-primary-min-height: 50px;
+
+  /* Secondary button (white/light) */
+  --button-secondary-bg: #fff;
+  --button-secondary-color: var(--color-text-primary);
+  --button-secondary-bg-hover: #f0f0f0;
+  --button-secondary-padding: 8px 24px;
+  --button-secondary-font-size: 16px;
+  --button-secondary-min-height: 40px;
+
+  /* Tertiary button (neutral gray) */
+  --button-tertiary-bg: var(--color-neutral-light);
+  --button-tertiary-color: var(--color-text-primary);
+  --button-tertiary-bg-hover: #d4d2cf;
+  --button-tertiary-padding: 9px 34px;
+  --button-tertiary-font-size: 18px;
+  --button-tertiary-min-height: 50px;
+
+  /* ========== SPACING ========== */
+  --spacing-xxl: 64px;
+  --spacing-xl: 48px;
+  --spacing-l: 32px;
+  --spacing-m: 24px;
+  --spacing-s: 16px;
+  --spacing-xs: 8px;
+
+  /* ========== LAYOUT ========== */
+  --content-max-width: 780px;
+  --section-padding: 48px 24px;
   --header-height: 64px;
-  --breadcrumb-height: 24px;
+
+  /* ========== FOCUS ========== */
+  --focus-outline: 2px solid var(--color-link);
+  --focus-outline-offset: 2px;
 }
 
-.light-scheme {
-  color-scheme: light;
-}
-
-.dark-scheme {
-  color-scheme: dark;
-}
+/* ========== BASE STYLES ========== */
 
 html {
   scroll-padding-top: calc(var(--header-height) + 1rem);
@@ -213,9 +125,10 @@ body {
   font-size: var(--body-font-size-m);
   line-height: var(--body-line-height);
   padding: var(--header-height) 0 0;
+  -webkit-font-smoothing: antialiased;
 
   &.has-breadcrumb {
-    margin: calc(var(--header-height) + var(--breadcrumb-height)) 0 0;
+    margin: calc(var(--header-height) + 24px) 0 0;
   }
 
   &.no-header {
@@ -231,71 +144,150 @@ header {
   position: fixed;
 }
 
+/* ========== TYPOGRAPHY ========== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: var(--heading-line-height);
+}
+
+h1,
+h2 {
+  font-family: var(--heading-font-family);
+}
+
+h1 {
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: var(--heading-font-size-xl);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: var(--heading-font-size-m);
+  font-weight: 700;
+  font-family: var(--body-font-family);
+  line-height: 1.2;
+}
+
+h4 {
+  font-size: var(--heading-font-size-s);
+  font-weight: 600;
+}
+
+h5 {
+  font-size: var(--heading-font-size-xs);
+  font-weight: 600;
+}
+
+h6 {
+  font-size: var(--heading-font-size-xs);
+  font-weight: 600;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+strong {
+  font-weight: 700;
+}
+
+/* ========== LINKS ========== */
+
 a {
   color: var(--color-link);
+  text-decoration: none;
+  transition: color 0.2s ease;
 
-  &.btn {
-    display: inline-block;
-    line-height: 1;
-    font-weight: 500;
-    text-decoration: none;
-    border: 2px solid;
-    padding: 8px 12px;
-    box-sizing: border-box;
-
-    &.btn-outline {
-      background: transparent;
-    }
+  &:hover {
+    color: var(--color-link-hover);
+    text-decoration: underline;
   }
 
-  &.btn-accent {
-    color: #fff;
-    background: var(--color-accent);
-    border: 2px solid var(--color-accent);
-
-    &.btn-outline {
-      color: var(--color-accent);
-    }
-  }
-
-  &.btn-primary {
-    color: var(--color-background);
-    background-color: var(--color-text);
-
-    &.btn-outline {
-      color: var(--color-text);
-      background: transparent;
-    }
-  }
-
-  &.btn-secondary {
-    color: var(--color-background);
-    background-color: var(--color-gray-500);
-    border: 2px solid var(--color-gray-500);
-
-    &.btn-outline {
-      color: var(--color-gray-500);
-    }
-  }
-
-  &.btn-negative {
-    color: #fff;
-    background-color: var(--color-red-600);
-    border: 2px solid var(--color-red-600);
-
-    &.btn-outline {
-      color: var(--color-red-600);
-    }
+  &:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-outline-offset);
+    border-radius: 2px;
   }
 }
 
-/* sections */
-.section {
-  display: block;
+/* ========== BUTTONS ========== */
 
-  > .default-content {
-    max-width: var(--grid-container-width);
-    margin: 0 auto;
+/* Primary CTA - green button (default for strong > a pattern) */
+a.button,
+strong a {
+  display: inline-block;
+  font-family: var(--body-font-family);
+  font-size: var(--button-primary-font-size);
+  font-weight: var(--button-font-weight);
+  line-height: 1.37;
+  color: var(--button-primary-color);
+  background-color: var(--button-primary-bg);
+  border: 1px solid transparent;
+  border-radius: var(--button-border-radius);
+  padding: var(--button-primary-padding);
+  min-height: var(--button-primary-min-height);
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--button-transition);
+  box-sizing: border-box;
+
+  &:hover {
+    background-color: var(--button-primary-bg-hover);
+    color: var(--button-primary-color);
+    text-decoration: none;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-outline-offset);
+  }
+}
+
+/* Secondary button - white/light (em > a pattern) */
+em a,
+a.button.secondary {
+  font-style: normal;
+  color: var(--button-secondary-color);
+  background-color: var(--button-secondary-bg);
+  padding: var(--button-secondary-padding);
+  font-size: var(--button-secondary-font-size);
+  min-height: var(--button-secondary-min-height);
+
+  &:hover {
+    background-color: var(--button-secondary-bg-hover);
+    color: var(--button-secondary-color);
+  }
+}
+
+/* Tertiary button - neutral gray */
+a.button.tertiary {
+  color: var(--button-tertiary-color);
+  background-color: var(--button-tertiary-bg);
+  padding: var(--button-tertiary-padding);
+  font-size: var(--button-tertiary-font-size);
+  min-height: var(--button-tertiary-min-height);
+
+  &:hover {
+    background-color: var(--button-tertiary-bg-hover);
   }
 }
 
@@ -406,13 +398,17 @@ a {
     font-size: 18px;
   }
 }
+button {
+  cursor: pointer;
+}
+
+/* ========== LISTS ========== */
 
 main {
   ul,
   ol {
     padding-inline-start: 24px;
 
-    /* Reduce nested lists even further */
     ul,
     ol {
       padding-inline-start: 12px;
@@ -420,41 +416,11 @@ main {
   }
 }
 
-button {
-  cursor: pointer;
-}
-
 li {
-  margin-block: 1em;
+  margin-block: 0.5em;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 600;
-  line-height: var(--heading-line-height);
-}
-
-h1 { font-size: var(--heading-font-size-xxl); }
-h2 { font-size: var(--heading-font-size-xl); }
-h3 { font-size: var(--heading-font-size-l); }
-h4 { font-size: var(--heading-font-size-m); }
-h5 { font-size: var(--heading-font-size-s); }
-h6 { font-size: var(--heading-font-size-xs); }
-
-strong {
-  font-weight: 600;
-}
-
-input,
-textarea,
-select,
-button {
-  font: inherit;
-}
+/* ========== IMAGES ========== */
 
 img {
   width: 100%;
@@ -466,17 +432,114 @@ svg {
   height: 20px;
 }
 
-/* @media (width >= 600px) {} */
+/* ========== INPUT ========== */
 
-/* @media (width >= 900px) {} */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
 
-/* @media (width >= 1200px) {} */
+/* ========== SECTIONS ========== */
+
+.section {
+  display: block;
+  padding: var(--section-padding);
+
+  > .default-content {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  > .default-content p {
+    font-size: var(--body-font-size-xxl);
+    line-height: 1.33;
+    margin-top: 12px;
+  }
+}
+
+/* Dark section variant */
+main > .section.dark {
+  background-color: var(--color-dark-olive);
+  color: var(--color-text-light);
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-text-light);
+  }
+
+  p {
+    color: var(--color-text-light);
+  }
+
+  a:not(.button, strong a) {
+    color: var(--color-text-light);
+  }
+
+  a:not(.button, strong a):hover {
+    color: #ccc;
+  }
+
+  /* White secondary button on dark backgrounds */
+  em a,
+  a.button.secondary {
+    color: var(--color-text-primary);
+    background-color: #fff;
+
+    &:hover {
+      background-color: #f0f0f0;
+    }
+  }
+}
+
+/* Accent-teal section variant */
+main > .section.accent-teal {
+  background-color: var(--color-dark-olive);
+  color: var(--color-text-light);
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-text-light);
+  }
+
+  p {
+    color: var(--color-text-light);
+  }
+
+  a:not(.button, strong a) {
+    color: var(--color-text-light);
+  }
+}
+
+/* ========== RESPONSIVE ========== */
+
+@media (width >= 900px) {
+  :root {
+    --heading-font-size-xxl: 60px;
+    --heading-font-size-xl: 48px;
+  }
+}
+
+@media (width < 900px) {
+  :root {
+    --heading-font-size-xxl: 36px;
+    --heading-font-size-xl: 30px;
+    --heading-font-size-l: 28px;
+    --heading-font-size-m: 22px;
+    --body-font-size-xxxl: 24px;
+    --body-font-size-xxl: 18px;
+    --section-padding: 32px 16px;
+    --content-max-width: 100%;
+  }
+}
 
 @media (width >= 1440px) {
   :root {
-    --grid-container-width: 1200px;
+    --content-max-width: 780px;
   }
 }
+
+/* ========== UTILITY ========== */
 
 main > div,
 .has-template,
