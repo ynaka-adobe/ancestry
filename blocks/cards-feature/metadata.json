@@ -1,0 +1,39 @@
+{
+  "variantName": "cards-feature",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-03-08T03:26:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.ancestry.com",
+    "originPage": "homepage",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "minimal",
+    "purpose": "feature-highlights",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "3 cards: heading + description + CTA",
+    "buttonCount": 3,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "feature highlight sections",
+      "resource/guide listings",
+      "call-to-action card grids"
+    ],
+    "notSuitableFor": [
+      "pricing displays",
+      "image gallery cards",
+      "team member cards"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-03-08T03:26:00.000Z"
+  }
+}
