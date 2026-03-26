@@ -21,8 +21,20 @@ const linkBlocks = [
 // Blocks with self-managed styles
 const components = ['fragment', 'schedule'];
 
+// Word/DA imports sometimes leave this placeholder when an image did not resolve; it is not a valid URL and spams the console.
+const TRANSPARENT_PIXEL =
+  'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+
+function sanitizeBrokenImageSrc(area) {
+  area.querySelectorAll('img[src="about:error"]').forEach((img) => {
+    img.src = TRANSPARENT_PIXEL;
+  });
+}
+
 // How to decorate an area before loading it
 const decorateArea = ({ area = document }) => {
+  sanitizeBrokenImageSrc(area);
+
   const eagerLoad = (parent, selector) => {
     const img = parent.querySelector(selector);
     if (!img) return;
